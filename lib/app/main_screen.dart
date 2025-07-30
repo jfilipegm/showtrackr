@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../assets/components/mainButton.dart';
+import '../assets/components/main_button.dart';
 import 'constants/sizes.dart';
+import 'track_shows_screen.dart';
+import '../assets/components/title_text.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     // TO DO #4
     // Handle tracked shows count
-    final int trackedShows = 5;
+    final int trackedShows = 0;
     const double appTitleSizedBox = Sizes.xxs + Sizes.xs;
 
     return Scaffold(
@@ -23,14 +25,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'Show Trackr',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: Sizes.l,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            const TitleText('Show Trackr'),
             const SizedBox(height: appTitleSizedBox),
             Text(
               trackedShows == 0
@@ -43,8 +38,12 @@ class _MainScreenState extends State<MainScreen> {
             if (trackedShows == 0)
               Mainbutton(
                 onPressed: () {
-                  // TO DO #1
-                  // Handle "Track Shows"
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TrackShowsScreen(),
+                    ),
+                  );
                 },
                 label: 'Track Shows',
               )
