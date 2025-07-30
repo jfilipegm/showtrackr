@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:showtrackr/app/mainscreen.dart';
+import 'package:showtrackr/app/main_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ShowTrackr());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class ShowTrackr extends StatefulWidget {
+  const ShowTrackr({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<ShowTrackr> createState() => _ShowTrackrState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _ShowTrackrState extends State<ShowTrackr> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: MainScreen());
