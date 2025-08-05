@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../assets/components/mainButton.dart';
+import '../assets/components/main_button.dart';
 import 'constants/sizes.dart';
+import 'track_shows_screen.dart';
+import '../assets/components/title_text.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -12,9 +14,8 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    // TO DO #4
-    // Handle tracked shows count
-    final int trackedShows = 5;
+    // TO DO: Handle tracked shows count
+    final int trackedShows = 0;
     const double appTitleSizedBox = Sizes.xxs + Sizes.xs;
 
     return Scaffold(
@@ -23,14 +24,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              'Show Trackr',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: Sizes.l,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            const TitleText('Show Trackr'),
             const SizedBox(height: appTitleSizedBox),
             Text(
               trackedShows == 0
@@ -43,8 +37,12 @@ class _MainScreenState extends State<MainScreen> {
             if (trackedShows == 0)
               Mainbutton(
                 onPressed: () {
-                  // TO DO #1
-                  // Handle "Track Shows"
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TrackShowsScreen(),
+                    ),
+                  );
                 },
                 label: 'Track Shows',
               )
@@ -54,16 +52,15 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   Mainbutton(
                     onPressed: () {
-                      // TO DO #3
-                      // Handle "Track more Shows"
+                      // TO DO: Handle "Track more Shows"
                     },
                     label: 'Track more Shows',
                   ),
                   const SizedBox(width: Sizes.s),
                   Mainbutton(
                     onPressed: () {
-                      // TO DO #2
-                      // Handle "Check tracked shows"
+                      // TO DO: Handle "Check tracked shows"
+                      //fuck db's will use a json fuck it
                     },
                     label: 'Check tracked shows',
                   ),
